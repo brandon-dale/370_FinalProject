@@ -4,7 +4,9 @@
 
 #include "CoreMinimal.h"
 #include "GameFramework/Character.h"
+#include "Weapon.h"
 #include "FinalProjectCharacter.generated.h"
+
 
 class UInputComponent;
 class USkeletalMeshComponent;
@@ -32,6 +34,7 @@ class AFinalProjectCharacter : public ACharacter
 
 public:
 	AFinalProjectCharacter();
+    void AttachWeapon();
 
 protected:
 	virtual void BeginPlay();
@@ -44,6 +47,8 @@ public:
 	/** Delegate to whom anyone can subscribe to receive this event */
 	UPROPERTY(BlueprintAssignable, Category = "Interaction")
 	FOnUseItem OnUseItem;
+    UPROPERTY(EditAnywhere, Category = Weapon)
+    TSubclassOf<AWeapon> WeaponClass;
 protected:
 	
 	/** Fires a projectile. */
@@ -98,6 +103,7 @@ public:
 	USkeletalMeshComponent* GetMesh1P() const { return Mesh1P; }
 	/** Returns FirstPersonCameraComponent subobject **/
 	UCameraComponent* GetFirstPersonCameraComponent() const { return FirstPersonCameraComponent; }
+    AWeapon* MyWeapon;
 
 };
 

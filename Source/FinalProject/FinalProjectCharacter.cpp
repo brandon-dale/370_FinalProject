@@ -41,6 +41,7 @@ void AFinalProjectCharacter::BeginPlay()
 {
 	// Call the base class  
 	Super::BeginPlay();
+    AttachWeapon();
 
 }
 
@@ -146,4 +147,29 @@ bool AFinalProjectCharacter::EnableTouchscreenMovement(class UInputComponent* Pl
 	}
 	
 	return false;
+}
+
+void AFinalProjectCharacter::AttachWeapon(){
+    if (WeaponClass)
+    {
+        UWorld* World = GetWorld();
+        if (World)
+        {
+            FActorSpawnParameters SpawnParams;
+            SpawnParams.Owner = this;
+            SpawnParams.Instigator = GetInstigator();
+            // Need to set rotation like this because otherwise gun points down
+            // NOTE: This should probably be a blueprint parameter
+            FRotator Rotation(0.0f, 0.0f, -90.0f);
+            // Spawn the Weapon
+            MyWeapon = World->SpawnActor<AWeapon>(WeaponClass, FVector::ZeroVector,
+                                                  Rotation, SpawnParams);
+        }
+        if(MyWeapon){
+            FAttachmentTransformRules AttachmentRules(EAttachmentRule::SnapToTarget, true);
+            
+            MyWeapon->WeaponMesh->GetOwner()->AttachToComponent(GetMesh1P(),AttachmentRules,FName(TEXT("PistolGrip")));
+            //GetOwner()->AttachToComponent(Character->GetMesh1P(),AttachmentRules, //FName(TEXT("GripPoint")));
+        }
+    }
 }
