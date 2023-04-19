@@ -35,6 +35,8 @@ class AFinalProjectCharacter : public ACharacter
 public:
 	AFinalProjectCharacter();
     void AttachWeapon();
+    void SFire();
+    void EFire();
 
 protected:
 	virtual void BeginPlay();

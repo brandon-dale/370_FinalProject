@@ -57,7 +57,9 @@ void AFinalProjectCharacter::SetupPlayerInputComponent(class UInputComponent* Pl
 	PlayerInputComponent->BindAction("Jump", IE_Released, this, &ACharacter::StopJumping);
 
 	// Bind fire event
-	PlayerInputComponent->BindAction("PrimaryAction", IE_Pressed, this, &AFinalProjectCharacter::OnPrimaryAction);
+//	PlayerInputComponent->BindAction("PrimaryAction", IE_Pressed, this, &AFinalProjectCharacter::OnPrimaryAction);
+    PlayerInputComponent->BindAction("Shoot", IE_Pressed, this, &AFinalProjectCharacter::SFire);
+    PlayerInputComponent->BindAction("Shoot", IE_Released, this, &AFinalProjectCharacter::EFire);
 
 	// Enable touchscreen input
 	EnableTouchscreenMovement(PlayerInputComponent);
@@ -169,7 +171,21 @@ void AFinalProjectCharacter::AttachWeapon(){
             FAttachmentTransformRules AttachmentRules(EAttachmentRule::SnapToTarget, true);
             
             MyWeapon->WeaponMesh->GetOwner()->AttachToComponent(GetMesh1P(),AttachmentRules,FName(TEXT("PistolGrip")));
+            MyWeapon->MyPawn = this;
             //GetOwner()->AttachToComponent(Character->GetMesh1P(),AttachmentRules, //FName(TEXT("GripPoint")));
         }
+    }
+}
+
+
+void AFinalProjectCharacter::SFire(){
+    if(MyWeapon){
+        MyWeapon->OnStartFire();
+    }
+}
+
+void AFinalProjectCharacter::EFire(){
+    if(MyWeapon){
+        MyWeapon->OnStopFire();
     }
 }
