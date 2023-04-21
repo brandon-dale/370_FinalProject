@@ -106,6 +106,8 @@ public:
 	/** Returns FirstPersonCameraComponent subobject **/
 	UCameraComponent* GetFirstPersonCameraComponent() const { return FirstPersonCameraComponent; }
     AWeapon* MyWeapon;
+    UPROPERTY(EditAnywhere, Category = "Health")
+    float playerHP = 100.0;
 
 };
 
