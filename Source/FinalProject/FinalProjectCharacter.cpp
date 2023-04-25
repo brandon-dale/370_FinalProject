@@ -36,7 +36,7 @@ AFinalProjectCharacter::AFinalProjectCharacter()
 	Mesh1P->SetRelativeLocation(FVector(-0.5f, -4.4f, -155.7f));
     
     
-    
+    Tags.Add(FName("Player"));
 
 }
 

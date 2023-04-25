@@ -5,6 +5,7 @@
 #include "CoreMinimal.h"
 #include "Weapon.h"
 #include "FinalProjectCharacter.h"
+#include "Camera/CameraComponent.h"
 #include "AssaultWeapon.generated.h"
 
 /**
@@ -20,19 +21,24 @@ public:
     virtual void OnStartFire() override;
     virtual void OnStopFire() override;
 
-    UPROPERTY(EditAnywhere, Category = "GunStats")
+    UPROPERTY(EditAnywhere,BlueprintReadWrite, Category = "GunStats")
     float fireRate;
     
-    UPROPERTY(EditAnywhere, Category = "GunStats")
+    UPROPERTY(EditAnywhere,BlueprintReadWrite, Category = "GunStats")
     float weaponRange;
     
     UPROPERTY(EditDefaultsOnly)
     UParticleSystem* hitEffect;
     FTimerHandle timer;
-    UPROPERTY(EditAnywhere, Category = "Damage")
+    UPROPERTY(EditAnywhere,BlueprintReadWrite, Category = "Damage")
     float gunDamage;
+    UPROPERTY(BlueprintReadWrite)
     AFinalProjectCharacter* Character;
-protected:
+    UFUNCTION(BlueprintNativeEvent, BlueprintCallable)
     void WeaponTrace();
+    
+    
+protected:
+    
     
 };

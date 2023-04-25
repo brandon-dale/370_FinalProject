@@ -11,6 +11,7 @@ AWeapon::AWeapon()
     
     WeaponMesh = CreateDefaultSubobject<USkeletalMeshComponent>(TEXT("RootComponent"));
     RootComponent = WeaponMesh;
+    
 
 }
 

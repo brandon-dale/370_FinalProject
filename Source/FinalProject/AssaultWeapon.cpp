@@ -7,6 +7,9 @@ AAssaultWeapon::AAssaultWeapon(){
     fireRate = 0.5f;
     weaponRange = 10000.0f;
     gunDamage = 4.0f;
+    if(MyPawn){
+        Character = Cast<AFinalProjectCharacter>(MyPawn);
+    }
     
 }
 
@@ -25,25 +28,27 @@ void AAssaultWeapon::OnStopFire(){
 }
 
 
-void AAssaultWeapon::WeaponTrace()
+void AAssaultWeapon::WeaponTrace_Implementation()
 {
-    static FName WeaponFireTag = FName(TEXT("WeaponTrace"));
-    static FName MuzzleSocket = FName(TEXT("MuzzleFlashSocket"));
-    // Start from the muzzle's position
-    FVector StartPos = WeaponMesh->GetSocketLocation(MuzzleSocket);
-    // Get forward vector of MyPawn
-    FVector Forward = MyPawn->GetActorForwardVector();
-    // Calculate end position
-    FVector EndPos = StartPos + (Forward * weaponRange);/*TODO: Figure out vector math based on the WeaponRange*/
-    // Perform line trace to retrieve hit info
-    FCollisionQueryParams TraceParams(WeaponFireTag, true, GetInstigator());
-    // This fires the ray and checks against all objects w/ collision
-    FHitResult Hit(ForceInit);
-    GetWorld()->LineTraceSingleByObjectType(Hit, StartPos, EndPos,
-                                            FCollisionObjectQueryParams::AllObjects, TraceParams);
-    // Did this hit anything?
-    if (Hit.bBlockingHit)
-    {
-        UGameplayStatics::SpawnEmitterAtLocation(GetWorld(),hitEffect,Hit.ImpactPoint,Hit.ImpactNormal.Rotation());
-    }
+//    static FName WeaponFireTag = FName(TEXT("WeaponTrace"));
+//    static FName MuzzleSocket = FName(TEXT("MuzzleFlashSocket"));
+//    // Start from the muzzle's position
+//    FVector StartPos = WeaponMesh->GetSocketLocation(MuzzleSocket);
+//    // Get forward vector of MyPawn
+//    FVector Forward = MyPawn->GetActorForwardVector();
+//    // Calculate end position
+//    FVector EndPos = StartPos + (Forward * weaponRange);/*TODO: Figure out vector math based on the WeaponRange*/
+//    // Perform line trace to retrieve hit info
+//    FCollisionQueryParams TraceParams(WeaponFireTag, true, GetInstigator());
+//    // This fires the ray and checks against all objects w/ collision
+//    FHitResult Hit(ForceInit);
+//    GetWorld()->LineTraceSingleByObjectType(Hit, StartPos, EndPos,
+//                                            FCollisionObjectQueryParams::AllObjects, TraceParams);
+//    // Did this hit anything?
+//    if (Hit.bBlockingHit)
+//    {
+//        UGameplayStatics::SpawnEmitterAtLocation(GetWorld(),hitEffect,Hit.ImpactPoint,Hit.ImpactNormal.Rotation());
+//    }
 }
+
+

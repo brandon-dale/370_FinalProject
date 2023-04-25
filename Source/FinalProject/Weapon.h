@@ -9,6 +9,7 @@
 #include "Sound/SoundCue.h"
 #include "Components/AudioComponent.h"
 #include "Kismet/GameplayStatics.h"
+
 #include "Particles/ParticleSystemComponent.h"
 #include "Weapon.generated.h"
 
@@ -59,6 +60,7 @@ public:
     UParticleSystem* MuzzleFX;
     
     APawn* MyPawn;
+    //AFinalProjectCharacter* myChar;
     
     
     
