@@ -38,6 +38,8 @@ AFinalProjectCharacter::AFinalProjectCharacter()
     
     Tags.Add(FName("Player"));
 
+	// NEW!!!!! Adds a player tag that the enemy AI uses
+    Tags.Add(FName("Player"));
 }
 
 void AFinalProjectCharacter::BeginPlay()
