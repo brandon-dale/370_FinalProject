@@ -58,7 +58,7 @@ public:
     
     UPROPERTY(EditDefaultsOnly,Category = "Effects")
     UParticleSystem* MuzzleFX;
-    
+    UPROPERTY(BlueprintReadWrite)
     APawn* MyPawn;
     //AFinalProjectCharacter* myChar;
     

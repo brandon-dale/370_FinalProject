@@ -1,9 +1,9 @@
 // Fill out your copyright notice in the Description page of Project Settings.
 
 
-#include "AssaultWeapon.h"
+#include "Pistol.h"
 
-AAssaultWeapon::AAssaultWeapon(){
+APistol::APistol(){
     fireRate = 0.5f;
     weaponRange = 10000.0f;
     gunDamage = 4.0f;
@@ -14,21 +14,19 @@ AAssaultWeapon::AAssaultWeapon(){
 }
 
 
-void AAssaultWeapon::OnStartFire(){
+void APistol::OnStartFire(){
     Super::OnStartFire();
-    GetWorldTimerManager().SetTimer(timer,this,&AAssaultWeapon::WeaponTrace,fireRate,true,0.0f);
+    GetWorldTimerManager().SetTimer(timer,this,&APistol::WeaponTrace,fireRate,true,0.0f);
     
 }
 
-void AAssaultWeapon::OnStopFire(){
+void APistol::OnStopFire(){
     Super::OnStopFire();
     GetWorldTimerManager().ClearTimer(timer);
 }
 
 
-void AAssaultWeapon::WeaponTrace_Implementation()
+void APistol::WeaponTrace_Implementation()
 {
 
 }
-
-

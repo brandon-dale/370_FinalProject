@@ -25,7 +25,8 @@ class AFinalProjectCharacter : public ACharacter
 	GENERATED_BODY()
 
 	/** Pawn mesh: 1st person view (arms; seen only by self) */
-	UPROPERTY(VisibleDefaultsOnly, Category=Mesh)
+public:
+	UPROPERTY(VisibleDefaultsOnly, BlueprintReadWrite, Category=Mesh)
 	USkeletalMeshComponent* Mesh1P;
 public:
 	/** First person camera */
@@ -105,6 +106,7 @@ public:
 	USkeletalMeshComponent* GetMesh1P() const { return Mesh1P; }
 	/** Returns FirstPersonCameraComponent subobject **/
 	UCameraComponent* GetFirstPersonCameraComponent() const { return FirstPersonCameraComponent; }
+    UPROPERTY(BlueprintReadWrite)
     AWeapon* MyWeapon;
     UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Health")
     float playerHP = 100.0;
