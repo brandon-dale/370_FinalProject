@@ -37,10 +37,12 @@ public:
 	AFinalProjectCharacter();
     void AttachWeapon();
     void SFire();
+    UFUNCTION(BlueprintCallable)
     void EFire();
 
 protected:
 	virtual void BeginPlay();
+    
 
 public:
 	/** Base turn rate, in deg/sec. Other scaling may affect final turn rate. */
@@ -110,6 +112,9 @@ public:
     AWeapon* MyWeapon;
     UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Health")
     float playerHP = 100.0;
+    UPROPERTY(BlueprintReadWrite)
+    bool canShoot;
+    bool isShooting;
 
 };
 

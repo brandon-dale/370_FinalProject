@@ -40,6 +40,8 @@ AFinalProjectCharacter::AFinalProjectCharacter()
 
 	// NEW!!!!! Adds a player tag that the enemy AI uses
     Tags.Add(FName("Player"));
+    canShoot = true;
+    
 }
 
 void AFinalProjectCharacter::BeginPlay()
@@ -185,12 +187,21 @@ void AFinalProjectCharacter::AttachWeapon(){
 
 void AFinalProjectCharacter::SFire(){
     if(MyWeapon){
-        MyWeapon->OnStartFire();
+        if(canShoot)
+        {
+            isShooting = true;
+            MyWeapon->OnStartFire();
+            
+        }
     }
 }
 
 void AFinalProjectCharacter::EFire(){
     if(MyWeapon){
-        MyWeapon->OnStopFire();
+        if(isShooting)
+        {
+            MyWeapon->OnStopFire();
+            isShooting = false;
+        }
     }
 }
