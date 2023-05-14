@@ -25,8 +25,13 @@ public:
 protected:
     // Called when the game starts or when spawned
     virtual void BeginPlay() override;
+
     UPROPERTY(Transient)
     UAudioComponent* FireAC;
+
+    UPROPERTY(Transient)
+    UAudioComponent* EquipAC;
+
     UAudioComponent* PlayWeaponSound(USoundCue* Sound);
     
     UPROPERTY(Transient)
@@ -39,6 +44,7 @@ public:
     virtual void OnStartFire();
     virtual void OnStopFire();
     
+    virtual void EndPlay(const EEndPlayReason::Type EndPlayReason) override;
     
     UPROPERTY(VisibleDefaultsOnly,BlueprintReadOnly,Category = "Weapon")
     USkeletalMeshComponent* WeaponMesh;

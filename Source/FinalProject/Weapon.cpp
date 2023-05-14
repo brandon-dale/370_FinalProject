@@ -20,7 +20,7 @@ void AWeapon::BeginPlay()
 {
     Super::BeginPlay();
     if (EquipSound) {
-        PlayWeaponSound(EquipSound);
+        EquipAC = PlayWeaponSound(EquipSound);
     }
     
 }
@@ -57,4 +57,19 @@ UAudioComponent* AWeapon::PlayWeaponSound(USoundCue* Sound)
         AC = UGameplayStatics::SpawnSoundAttached(Sound, RootComponent);
     }
     return AC;
+}
+
+
+void AWeapon::EndPlay(const EEndPlayReason::Type EndPlayReason)
+{
+    GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Red, TEXT("Hello, World!"));
+    if (EquipAC) {
+        EquipAC->Stop();
+    }
+    else if (EquipAC == nullptr){
+        GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Red, TEXT("ITS NULLLL!!!!!"));
+    }
+    
+    Super::EndPlay(EndPlayReason);
+
 }
