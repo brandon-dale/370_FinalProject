@@ -5,7 +5,11 @@ created by Homero Arellano, Diego Rivera, Brandon Dale, and Sean Kozina
 
 Click on our git hub repo link https://github.com/Xx-rat-xX/370_FinalProject
 Clone the repo to your local machine via the instructions provided on canvas (See https://docs.github.com/en/repositories/creating-and-managing-repositories/cloning-a-repository )
-Open your finder/file explorer and navigate to the cloned repo (should be called 'CS370_Lab06')
+
+**Through your terminal/commandprompt, navigate to the directory of the cloned project and perfrom the following command
+_git checkout release__**
+
+Open your finder/file explorer and navigate to the cloned repo (should be called '370_FinalProject')
 open the .uproject file
 download starter content
 close the game!! then reopen so all the assets are available/visible
