@@ -21,7 +21,7 @@ when done, mke sure the game is being played in a seperate window (in order to s
 press play, and enjoy the game!
 
 Gameplay instructions:
--BeginPlay
+-**BEGINPLAY**
     -When firt opening the game you will be directed to the main menu
         -'Start" will take the player to the game and commneces the game
         -'Quit' will simply quit the game and editor
@@ -33,21 +33,21 @@ Gameplay instructions:
     -key '3' = Chainsaw
     -key '4' = Sniper
 - Our "interact" button is 'e' and is used to purchase perks from the candy ball machine and to purchase weapons
-    - candy perk machine
+    - **CANDY PERK MACHINE**
         -when the player is close enough to the candy ball machine and interats with it (via 'e') a random perk is given to the player
         -POINTS REQUIRED FOR INTERACTION (1000)
         -First Perk = an increase to your health
         -Second Perk = a 20% weapon damage buff
-    - Weapons/Purchase Weapons
+    - **WEAPONS/WEAPON UPGRADES**
         -you are autmoatically spawned with a pistol that holds 120 ammo and deals 10dmg
         -in the upgrade room, there are weapons hovering above pads that are obtainable via the same method as aquiring perks
         -the points required and damage for each weapon correspond as shown:
             -AK (500pts)(20dmg)
             -Chainsaw(750pts)(20dmg)
             -Sniper(1000pts)(200dmg)
-        -Grenade
+        -**GRENADE**
             -with 'g' you are able to throw a grenade that will explode on enemy impact, or after 5 seconds
- -Pickups
+ -**PICKUPS**
     -Health
         -there are 2 health pick ups with a pizza or water bottle mesh
         -when overlapping with them, if you are not at full HP, you will "obtain it" and gain 50 HP 
@@ -59,7 +59,7 @@ Gameplay instructions:
             -AK = +45 ammo
             -Sniper = +15 ammo
             -Chainsaw does not use/waste ammo
- -Enemies
+ -**ENEMIES**
     -AI Controlled with corresponding animations, detects sound to actors that contain a specifed tag
     -if player is dead will stop the zombies from moving
         -Basic Zombie
@@ -70,11 +70,11 @@ Gameplay instructions:
             -has 200hp
             -is 2x bigger than the normal zombie
             -is bound to a zone that it can patrol
-  -Wave Manager
+  -**WAVE MANAGER**
       -spawns enemies at target points locations with specific tags
       -keeps track of how many zombies are left alive and will autonomously start each round
       -increments the amount of zombies to spawn each round
-  -Upgrade Room/Portal
+  -**UPGRADE ROOM/PORTAL**
       -when the player has killed all the zombies of that wave, a portal will spawn near the character
       -the player can interact with the portal by standing in it for 5 seconds.
       -after the 5 seconds have been met, the player is telported to an 'Upgrade Room'
@@ -84,7 +84,7 @@ Gameplay instructions:
       -when exiting the upgrade room, go inside the portal the same way you entered and you will spawn 
        exactly where you had entered from
       -after 3 seconds the portal will dissapear and the wave will have started
- -HUD
+ -**HUD**
     -displays a crosshair that corresponds to where you are shooting
     -# of points and kills
     -health bar displaying player's health
